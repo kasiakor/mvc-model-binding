@@ -18,6 +18,8 @@ namespace MvcModels.Controllers
             new Person {PersonId = 4, FirstName = "Kate", LastName = "Bush", Role = Role.User}
         };
         // GET: Home
+
+        //action invoker will check Index method and find int parameter (id), then it will find a model binder responsible for int values and call its BindModel method
         public ActionResult Index(int id)
         {
             Person dataItem = personData.Where(p => p.PersonId == id).First();
