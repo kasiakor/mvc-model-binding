@@ -25,5 +25,16 @@ namespace MvcModels.Controllers
             Person dataItem = personData.Where(p => p.PersonId == id).First();
             return View(dataItem);
         }
+
+        public ActionResult CreatePerson()
+        {
+            return View(new Person());
+        }
+
+        [HttpPost]
+        public ActionResult CreatePerson(Person model)
+        {
+            return View("Index", model);
+        }
     }
 }
