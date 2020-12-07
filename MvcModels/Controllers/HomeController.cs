@@ -41,5 +41,12 @@ namespace MvcModels.Controllers
         {
             return View(summary);
         }
+
+        public ActionResult Names(string[] names)
+        {
+            //creates empty array
+            names = names ?? new string[0];
+            return View(names);
+        }
     }
 }

@@ -1,0 +1,49 @@
+﻿@model string[]
+
+@{
+    ViewBag.Title = "Names";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Names</h2>
+
+@if (Model.Length == 0) {
+    using (Html.BeginForm())
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            <div>
+                <label>@(i + 1):</label>
+                @Html.TextBox("names")
+            </div>
+        }
+    <button type="submit">Submit</button>
+        }
+    }
+    else
+    {
+        foreach (string str in Model)
+        {
+        <p> @str </p>
+        }
+    }
+
+
+@*<form action="/Home/Names" method="post">
+    <div>
+        <label>1:</label>
+        <input id="names" name="names" type="text" value="" />
+    </div>
+    <div>
+        <label>2:</label>
+        <input id="names" name="names" type="text" value="" />
+    </div>
+    <div>
+        <label>3:</label>
+        <input id="names" name="names" type="text" value="" />
+    </div>
+    <button type="submit">Submit</button>
+</form>*@
+
+
