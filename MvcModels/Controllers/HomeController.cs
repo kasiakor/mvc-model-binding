@@ -1,8 +1,6 @@
 ﻿using MvcModels.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MvcModels.Controllers
@@ -47,6 +45,13 @@ namespace MvcModels.Controllers
             //creates empty array
             names = names ?? new string[0];
             return View(names);
+        }
+
+        public ActionResult Surnames(List<string> surnames)
+        {
+            //creates empty list
+            surnames = surnames ?? new List<string>();
+            return View(surnames);
         }
     }
 }
