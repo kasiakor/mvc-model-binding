@@ -1,0 +1,42 @@
+﻿@model IList<AddressSummary>
+@using MvcModels.Models
+
+@{
+    ViewBag.Title = "Address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Addresses</h2>
+@*collection of objects with two properties*@
+@if (Model.Count() == 0) {
+    using (Html.BeginForm())
+    {
+        for (int i = 0; i < 3; i++)
+        {
+<fieldset>
+    <legend>Address @(i + 1)</legend>
+    <div>
+        <label>City: @(i + 1):</label>
+        @Html.Editor("[" + i + "].City")
+    </div>
+    <div>
+        <label>Country: @(i + 1):</label>
+        @Html.Editor("[" + i + "].Country")
+    </div>
+</fieldset>
+        }
+    <button type="submit">Submit</button>
+        }
+    }
+    else
+    {
+        foreach (AddressSummary str in Model)
+        {
+        <p> @str.City, @str.Country</p>
+        }
+    @Html.ActionLink("Back","Address")
+    }
+
+
+
